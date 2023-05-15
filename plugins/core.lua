@@ -20,6 +20,34 @@ return {
       return opts
     end,
   },
+  {
+    "rcarriga/nvim-notify",
+    config = function(plugin, opts)
+      require "plugins.configs.notify" (plugin, opts) -- include the default astronvim config that calls the setup call
+      -- add more custom notify configuration such as custom rules
+      local notify = require "notify"
+      notify.setup {
+        -- Animation style (see below for details)
+        stages = "fade_in_slide_out",
+
+        -- Default timeout for notifications
+        timeout = 5000,
+
+        -- For stages that change opacity this is treated as the highlight behind the window
+        background_colour = "#000000",
+
+        -- Icons for the different levels
+        icons = {
+          ERROR = "",
+          WARN = "",
+          INFO = "",
+          DEBUG = "",
+          TRACE = "✎",
+        },
+      }
+    end,
+  }
+
   -- You can disable default plugins as follows:
   -- { "max397574/better-escape.nvim", enabled = false },
   --

@@ -9,4 +9,10 @@ return {
   --     require("lsp_signature").setup()
   --   end,
   -- },
+  {
+    "folke/tokyonight.nvim",
+    opts = {
+      transparent = true,
+    }
+  }
 }
